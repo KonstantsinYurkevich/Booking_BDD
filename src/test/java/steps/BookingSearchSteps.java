@@ -49,7 +49,7 @@ public class BookingSearchSteps {
         BookingResultsPage page = new BookingResultsPage(driver);
         assertTrue(page.isPageOpened());
         List<String> hotels = page.getResults();
-        assertTrue(String.valueOf(hotels).contains(searchString));
+        assertTrue(hotels.contains(searchString));
     }
 
     @And("rating should be {string}")

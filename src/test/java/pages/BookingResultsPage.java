@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,7 +17,7 @@ public class BookingResultsPage extends BasePage {
 
 
     @FindBy(xpath = "//span[contains(@class,'sr-hotel__name')]")
-    private List<WebElement> resultsLinks;
+    private List<WebElement> resultsHotels;
 
     @FindBy(xpath = "//h1[contains(text(),' properties found')]")
     private WebElement resultOfSearch;
@@ -27,8 +28,14 @@ public class BookingResultsPage extends BasePage {
     }
 
     public List<String> getResults() {
-        return resultsLinks.stream().map(result -> result.getAttribute("innerText"))
+        List<String> list = resultsHotels.stream().map(result -> result.getAttribute("innerText"))
                 .filter(result -> !result.isEmpty()).collect(Collectors.toList());
+        List<String> strings = new ArrayList<>();
+        for (String s : list) {
+            String str = s.substring(0, s.length() - 1);
+            strings.add(str);
+        }
+        return strings;
 
     }
 
