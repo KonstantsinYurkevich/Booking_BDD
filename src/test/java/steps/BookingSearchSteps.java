@@ -30,7 +30,7 @@ public class BookingSearchSteps {
         driver = new ChromeDriver();
     }
 
-    @Given("I want to search for {string}")
+    @Given("I want to search fo r {string}")
     public void iWantToSearchFor(String hotelName) {
         searchString = hotelName;
     }
