@@ -12,5 +12,28 @@ import java.util.stream.Collectors;
 
 public class BookingResultsPage extends BasePage {
 
+    public static final String HOTEL_RATING_LOCATOR = "//span[contains(text(),'%s')]//ancestor::div[contains(@class," +
+            "'sr_property_block_main_row')]//div[@class = \"bui-review-score__badge\"]";
 
+
+    @FindBy(xpath = "//span[contains(@class,'sr-hotel__name')]")
+    private List<WebElement> resultsHotels;
+
+    @FindBy(xpath = "//h1[contains(text(),' properties found')]")
+    private WebElement resultOfSearch;
+
+
+    public BookingResultsPage(WebDriver driver) {
+        super(driver);
+    }
+
+
+
+    public boolean isPageOpened() {
+        return resultOfSearch.isDisplayed();
+    }
+
+    public String getRatingFor(String hotelName) {
+        return driver.findElement(By.xpath(String.format(HOTEL_RATING_LOCATOR, hotelName))).getText();
+    }
 }
