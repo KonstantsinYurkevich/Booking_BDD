@@ -27,17 +27,6 @@ public class BookingResultsPage extends BasePage {
         super(driver);
     }
 
-    public List<String> getResults() {
-        List<String> list = resultsHotels.stream().map(result -> result.getAttribute("innerText"))
-                .filter(result -> !result.isEmpty()).collect(Collectors.toList());
-        List<String> strings = new ArrayList<>();
-        for (String s : list) {
-            String str = s.substring(0, s.length() - 1);
-            strings.add(str);
-        }
-        return strings;
-
-    }
 
     public boolean isPageOpened() {
         return resultOfSearch.isDisplayed();
