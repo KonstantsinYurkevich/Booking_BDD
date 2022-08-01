@@ -16,8 +16,7 @@ public class BookingResultsPage extends BasePage {
             "'sr_property_block_main_row')]//div[@class = \"bui-review-score__badge\"]";
 
 
-    @FindBy(xpath = "//span[contains(@class,'sr-hotel__name')]")
-    private List<WebElement> resultsHotels;
+
 
     @FindBy(xpath = "//h1[contains(text(),' properties found')]")
     private WebElement resultOfSearch;
