@@ -22,9 +22,6 @@ public class BookingResultsPage extends BasePage {
     private WebElement resultOfSearch;
 
 
-    public BookingResultsPage(WebDriver driver) {
-        super(driver);
-    }
 
 
 
