@@ -25,9 +25,7 @@ public class BookingResultsPage extends BasePage {
 
 
 
-    public boolean isPageOpened() {
-        return resultOfSearch.isDisplayed();
-    }
+
 
     public String getRatingFor(String hotelName) {
         return driver.findElement(By.xpath(String.format(HOTEL_RATING_LOCATOR, hotelName))).getText();
